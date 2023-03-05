@@ -175,8 +175,8 @@ def qqe_up_down(RsiMa, RsiMa2, upper, lower, ThreshHold2, CONST50) -> tuple:
     qqe_up = np.full_like(RsiMa2, fill_value=np.nan)
     qqe_down = np.full_like(RsiMa2, fill_value=np.nan)
 
-    qqe_up = np.where(qqe_up_cond, RsiMa2 - 50, np.nan)
-    qqe_down = np.where(qqe_down_cond, RsiMa2 - 50, np.nan)
+    qqe_up = np.where(qqe_up_cond, RsiMa2 - CONST50, np.nan)
+    qqe_down = np.where(qqe_down_cond, RsiMa2 - CONST50, np.nan)
 
     return qqe_up, qqe_down
 

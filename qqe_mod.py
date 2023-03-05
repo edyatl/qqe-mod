@@ -185,14 +185,17 @@ def main():
     FastAtrRsiTL, RsiMa = qqe_hist(src, RSI_Period, SF, QQE)
     FastAtrRsi2TL, RsiMa2 = qqe_hist(src2, RSI_Period2, SF2, QQE2)
 
+    qqe_line = FastAtrRsi2TL - CONST50
+    histo2 = RsiMa2  - CONST50
+
     upper, lower = bollinger_uplower(FastAtrRsiTL, length, mult, CONST50)
 
     qqe_up, qqe_down = qqe_up_down(RsiMa, RsiMa2, upper, lower, ThreshHold2, CONST50)
 
     res = pd.DataFrame(
         {
-            "qqe_line": FastAtrRsi2TL,
-            "histo2": RsiMa2,
+            "qqe_line": qqe_line,
+            "histo2": histo2,
             "qqe_up": qqe_up,
             "qqe_down": qqe_down,
         }

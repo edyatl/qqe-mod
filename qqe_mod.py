@@ -50,7 +50,7 @@ data["open_time"] = pd.to_datetime(data["open_time"], unit="ms")
 data["close_time"] = pd.to_datetime(data["close_time"], unit="ms")
 
 #--------------------------INPUTS--------------------------------
-# Common constant in calculations
+# Common constant in calculations `50 MA bollinger band`
 CONST50 = 50
 
 # First RSI input block
@@ -191,7 +191,6 @@ def main():
 
     res = pd.DataFrame(
         {
-
             "qqe_line": FastAtrRsi2TL,
             "histo2": RsiMa2,
             "qqe_up": qqe_up,
